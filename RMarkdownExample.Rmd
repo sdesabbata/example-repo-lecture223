@@ -1,0 +1,24 @@
+---
+title: "Test"
+author: "Stefano De Sabbata"
+date: "02/11/2020"
+output: pdf_document
+---
+
+# RMarkdown example
+
+This is an **RMarkdown** document. The *code chunk* below:
+
+- loads the necessary libraries
+- loads the flights from New York City in 2013
+- presents a few columns from the first row
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(nycflights13)
+
+nycflights13::flights %>% 
+  dplyr::select(year:day, origin, dest, flight) %>%
+  dplyr::slice_head(1) %>% 
+  knitr::kable()
+```
